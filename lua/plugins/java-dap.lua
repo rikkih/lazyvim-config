@@ -26,8 +26,9 @@ return {
         root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
         settings = {
           java = {
-            signatureHelp = { enabled = true },
             contentProvider = { preferred = "fernflower" },
+            saveActions = { organizeImports = true },
+            signatureHelp = { enabled = true },
           },
         },
         init_options = {
