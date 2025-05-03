@@ -1,0 +1,39 @@
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
+
+local dap = require("dap")
+local wk = require("which-key")
+
+local function mk_map(mode, lhs, rhs, desc, group)
+  vim.keymap.set(mode, lhs, rhs, { desc = desc })
+end
+
+-- Your preferred DAP key mappings
+mk_map("n", "<leader>da", function()
+  dap.continue()
+end, "Continue", "dap")
+mk_map("n", "<leader>de", function()
+  dap.run_to_cursor()
+end, "Run to cursor", "dap")
+mk_map("n", "<leader>dd", function()
+  dap.step_over()
+end, "Step over", "dap")
+mk_map("n", "<leader>df", function()
+  dap.step_into()
+end, "Step into", "dap")
+mk_map("n", "<leader>dg", function()
+  dap.step_out()
+end, "Step out", "dap")
+mk_map("n", "<leader>dr", function()
+  dap.restart()
+end, "Restart", "dap")
+mk_map("n", "<leader>ds", function()
+  dap.pause()
+end, "Pause", "dap")
+mk_map("n", "<leader>dv", function()
+  dap.toggle_breakpoint()
+end, "Toggle breakpoint", "dap")
+mk_map("n", "<leader>dt", function()
+  dap.terminate()
+end, "Terminate", "dap")
