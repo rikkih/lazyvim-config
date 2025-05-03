@@ -4,6 +4,7 @@ return {
     dependencies = {
       "mfussenegger/nvim-dap",
       "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
     },
     ft = { "java" },
     config = function()
@@ -40,6 +41,9 @@ return {
       }
 
       jdtls.start_or_attach(config)
+
+      -- Initialize dapui after everything else is set up
+      require("dapui").setup()
     end,
   },
 }
